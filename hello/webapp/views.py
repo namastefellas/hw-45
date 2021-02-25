@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from webapp.models import Article
+from webapp.models import Task
 
 # Create your views here.
 
 def index_view(request):
-    articles = Article.objects.all()
-    return render(request, 'index.html', context={'articles': articles})
+    tasks = Task.objects.all()
+    return render(request, 'index.html', context={'tasks': tasks})

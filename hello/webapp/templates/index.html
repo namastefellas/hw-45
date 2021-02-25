@@ -10,12 +10,12 @@
 <div>class="container"</div>
     <a href="tasks/add">Add Task<a>
     <h1>Tasks</h1>
-        {% if not articles %}
+        {% if not tasks %}
             <h2>No tasks</h2>
         {% endif %}
 
-        {% for article in articles %}
-        <p>{{ article.status }}: <a href="/article?id={{ article.id }}">{{ article.title }}</a></p>
+        {% for task in tasks %}
+        <p>{{ task.status }}: <a href="/task?id={{ task.id }}">{{ task.title }}</a></p>
     {% endfor %}
 </body>
 </html>

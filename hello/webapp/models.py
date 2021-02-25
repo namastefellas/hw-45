@@ -1,18 +1,16 @@
 from django.db import models
-
+status_choices = [('new', 'Новая'), ('in_progress', 'В процессе'),  ('done', 'Сделано')]
 # Create your models here.
 
-class Article(models.Model):
+class Task(models.Model):
     title = models.TextField(max_length=1000, null=False, blank=False, verbose_name='Задача')
-    status = models.CharField(max_length=200, null=False, blank=False, default='Unknown', verbose_name='Статус')
-    time = models.CharField(max_length=200, null=True, blank=True, default='New')
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
-    updated_at = models.DateTimeField(auto_now=True, verbose_name='Время изменения')
+    status = models.CharField(max_length=200, null=False, blank=False,choices=status_choices, default='new', verbose_name='Статус')
+    time = models.DateField(max_length=200, null=True, blank=True)
 
     class Meta:
-        db_table = 'articles'
+        db_table = 'Task'
         verbose_name = 'Задача'
-        verbose_name_plural = 'Статус'
+        verbose_name_plural = 'Задачи'
 
     def __str__(self):
 
