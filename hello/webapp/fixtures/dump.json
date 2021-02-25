@@ -1,0 +1,47 @@
+[
+{
+  "model": "webapp.task",
+  "pk": 1,
+  "fields": {
+    "title": "sadf",
+    "status": "new",
+    "time": "2003-01-12"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 2,
+  "fields": {
+    "title": "sadfasfasdf",
+    "status": "new",
+    "time": "2003-01-12"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 3,
+  "fields": {
+    "title": "qeqw",
+    "status": "new",
+    "time": null
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$216000$uKpyMUQvPTWA$1/oHe/fOpiREzRmacm6OpVA6YGb2FTmVTmHLe28U7vI=",
+    "last_login": "2021-02-25T12:01:21.968Z",
+    "is_superuser": true,
+    "username": "German",
+    "first_name": "",
+    "last_name": "",
+    "email": "coolmatoff@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2021-02-25T12:00:54.781Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
