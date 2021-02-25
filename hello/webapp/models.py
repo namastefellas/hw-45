@@ -5,7 +5,7 @@ status_choices = [('new', 'Новая'), ('in_progress', 'В процессе'),
 class Task(models.Model):
     title = models.TextField(max_length=1000, null=False, blank=False, verbose_name='Задача')
     status = models.CharField(max_length=200, null=False, blank=False,choices=status_choices, default='new', verbose_name='Статус')
-    time = models.DateField(max_length=200, null=True, blank=True)
+    time = models.DateField(null=True, blank=True)
 
     class Meta:
         db_table = 'Task'

@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
-<div>class="container"</div>
+<div class="container">
     <a href="tasks/add">Add Task<a>
     <h1>Tasks</h1>
         {% if not tasks %}
@@ -17,5 +19,6 @@
         {% for task in tasks %}
         <p>{{ task.status }}: <a href="/task?id={{ task.id }}">{{ task.title }}</a></p>
     {% endfor %}
+</div>
 </body>
 </html>
