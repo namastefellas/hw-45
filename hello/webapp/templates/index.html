@@ -9,15 +9,18 @@
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
-<div class="container">
-    <a href="tasks/add">Add Task<a>
+<nav>
+    <div class="container">
+        <ul class="menu">
+            <li><a href="{% url "add_task" %}">Add Task</a></li>>
+        </ul>        
     <h1>Tasks</h1>
         {% if not tasks %}
             <h2>No tasks</h2>
         {% endif %}
 
         {% for task in tasks %}
-        <p>{{ task.status }}: <a href="/task/{{ task.pk }}">{{ task.title }}</a></p>
+        <p>{{ task.status }}: <a href="{% url "task_view" task.pk %}">{{ task.title }}</a></p>
     {% endfor %}
 </div>
 </body>

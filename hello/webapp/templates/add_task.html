@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/tasks/add/" method="post">
+    <form action="{% url "add_task" %}" method="post">
         {% csrf_token %}
         <label>Title:</label><br/>
         <input type="text" name="title"/><br/>

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from webapp.models import Task, status_choices
 from django.http import HttpResponseRedirect
 
@@ -31,5 +31,4 @@ def add_task(request, *args, **kwargs):
             time=time,
             description=description
         )
-
-        return HttpResponseRedirect(f'/task/{task.pk}')
+        return redirect('task_view', pk=task.pk)
