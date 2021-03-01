@@ -5,6 +5,7 @@ status_choices = [('new', 'Новая'), ('in_progress', 'В процессе'),
 class Task(models.Model):
     title = models.TextField(max_length=1000, null=False, blank=False, verbose_name='Задача')
     status = models.CharField(max_length=200, null=False, blank=False,choices=status_choices, default='new', verbose_name='Статус')
+    description = models.TextField(max_length=3000, null=True, blank=True, verbose_name='Описание')
     time = models.DateField(null=True, blank=True)
 
     class Meta:
@@ -14,4 +15,4 @@ class Task(models.Model):
 
     def __str__(self):
 
-        return f'{self.title} {self.status} {self.time}'
+        return f'{self.title} {self.status} {self.description} {self.time}'

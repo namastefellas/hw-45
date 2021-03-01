@@ -18,6 +18,9 @@ def add_task(request):
     elif request.method == "POST":
         title = request.POST.get("title")
         status = request.POST.get("status")
+        description = request.POST.get("description")
+        if not description:
+            description=None
         time = request.POST.get("time")
         if not time:
             time=None
@@ -25,7 +28,8 @@ def add_task(request):
         task = Task.objects.create(
             title=title,
             status=status,
-            time=time
+            time=time,
+            description=description
         )
 
         return render(request, 'task_view.html', context={'task': task})

@@ -6,7 +6,7 @@ from webapp.models import Task
 class TaskAdmin(admin.ModelAdmin):
     list_display = ['id', 'title']
     search_fields = ['title', 'status']
-    fields = ['id', 'title', 'status']
+    fields = ['id', 'title', 'status', 'description']
     readonly_fields = ['id']
 
 
