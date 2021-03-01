@@ -12,7 +12,7 @@ def task_view(request, pk):
     tasks = Task.objects.get(pk=pk)
     return render(request, 'task_view.html', context={'task': tasks})
 
-def add_task(request):
+def add_task(request, *args, **kwargs):
     if request.method == "GET":
         return render(request, 'add_task.html',{'status':status_choices})
     elif request.method == "POST":
@@ -32,4 +32,4 @@ def add_task(request):
             description=description
         )
 
-        return HttpResponseRedirect(f'/task/?id={task.id}')
+        return HttpResponseRedirect(f'/task/{task.pk}')
