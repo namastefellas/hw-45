@@ -17,7 +17,7 @@
         {% endif %}
 
         {% for task in tasks %}
-        <p>{{ task.status }}: <a href="/task?id={{ task.id }}">{{ task.title }}</a></p>
+        <p>{{ task.status }}: <a href="/task/{{ task.pk }}">{{ task.title }}</a></p>
     {% endfor %}
 </div>
 </body>

@@ -20,6 +20,6 @@ from webapp.views import index_view, task_view, add_task
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index_view),
-    path('task/', task_view),
+    path('task/<int:pk>', task_view),
     path('tasks/add/', add_task)
 ]
