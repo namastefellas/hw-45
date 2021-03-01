@@ -1,4 +1,4 @@
-{% load static %}
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,15 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
-<nav class="navbar">
-    <div class="container">
-        <ul class="menu">
-            <li><a href="{% url "add_task" %}">Add Task</a></li>
-        </ul> 
-</nav>       
+    {% block menu %}
+   <li><a href="{% url "add_task" %}">Add Article</a></li>    
+   {% endblock %}
+   {% block content %}
     <h1>Tasks</h1>
         {% if not tasks %}
             <h2>No tasks</h2>
@@ -23,6 +20,7 @@
         {% for task in tasks %}
         <p>{{ task.status }}: <a href="{% url "task_view" task.pk %}">{{ task.title }}</a></p>
     {% endfor %}
+{% endblock %}
 </div>
 </body>
 </html>

@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +8,9 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <ul class="menu">
-                <li><a href="{% url 'index' %}">Home</a></li>
-            </ul>
-        </div>
-     </nav>
+    {% block menu %}
+   {% endblock %}
+    {% block content %}
     <form action="{% url "add_task" %}" method="post">
         {% csrf_token %}
         <label>Title:</label><br/>
@@ -32,5 +29,6 @@
         <br/>
         <input type="submit" value="Send"/>
     </form>
+    {% endblock %}
 </body>
 </html>
