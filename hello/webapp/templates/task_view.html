@@ -7,9 +7,13 @@
     <title>New Task</title>
 </head>
 <body>
-    <a href="/">View task list</a>
-    <br>
-    <br>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="menu">
+                <li><a href="{% url 'index' %}">Home</a></li>
+            </ul>
+        </div>
+     </nav>
     <h1>Task {{ task.id }}</h1>
     <p>Title: {{ task.title }}</p>
     <p>Status: {{ task.status }}</p>

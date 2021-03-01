@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
-<nav>
+<nav class="navbar">
     <div class="container">
         <ul class="menu">
-            <li><a href="{% url "add_task" %}">Add Task</a></li>>
-        </ul>        
+            <li><a href="{% url "add_task" %}">Add Task</a></li>
+        </ul> 
+</nav>       
     <h1>Tasks</h1>
         {% if not tasks %}
             <h2>No tasks</h2>
