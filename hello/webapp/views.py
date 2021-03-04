@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from webapp.models import Task, status_choices
 from django.http import HttpResponseRedirect
 
@@ -32,3 +32,15 @@ def add_task(request, *args, **kwargs):
             description=description
         )
         return redirect('task_view', pk=task.pk)
+
+    
+def task_update_view(request, pk):
+    tasks = get_object_or_404(Task, pk=pk)
+    if request.method == 'GET':
+        return render(request, 'update.html', context={'task': tasks})
+    elif request.method == 'POST':
+        tasks.title = request.POST.get('title')
+        tasks.status = request.POST.get('status')
+        tasks.time = request.POST.get('time')
+        tasks.description = request.POST.get('description')
+        return redirect('task_view', pk=tasks.pk)

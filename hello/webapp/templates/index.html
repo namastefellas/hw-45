@@ -19,6 +19,7 @@
 
         {% for task in tasks %}
         <p>{{ task.status }}: <a href="{% url "task_view" task.pk %}">{{ task.title }}</a></p>
+        <p><a href="{% url "task_update" task.pk %}">Edit</a></p>
     {% endfor %}
 {% endblock %}
 </div>

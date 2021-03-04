@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Update your tasks{% endblock %}
+{% block content %}
+    <h1>Update Task</h1>
+    <form method="POST" action="{% url "task_update" task.pk %}">
+        {% csrf_token %}
+        <p><label>Title</label> <input type="text" name="title" value="{{ task.title }}"></p>
+        <p><label>Status</label> <input type="text" name="status" value="{{ task.status }}"></p>
+        <p><label>Time</label> <input name="time" value="{{ task.time|date:"Y-m-d" }}"></p>
+        <p><label>Description</label> <input type="text" name="description" value="{{ task.description }}"></p>
+        <p><input type="submit" value="Submit"></p>
+    </form>
+{% endblock %}
+
