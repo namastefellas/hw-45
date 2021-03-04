@@ -37,10 +37,11 @@ def add_task(request, *args, **kwargs):
 def task_update_view(request, pk):
     tasks = get_object_or_404(Task, pk=pk)
     if request.method == 'GET':
-        return render(request, 'update.html', context={'task': tasks})
+        return render(request, 'update.html', context={'task': tasks, 'status':status_choices})
     elif request.method == 'POST':
         tasks.title = request.POST.get('title')
         tasks.status = request.POST.get('status')
         tasks.time = request.POST.get('time')
         tasks.description = request.POST.get('description')
+        tasks.save()
         return redirect('task_view', pk=tasks.pk)
