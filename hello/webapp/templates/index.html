@@ -9,7 +9,7 @@
 </head>
 <body>
     {% block menu %}
-   <li><a href="{% url "add_task" %}">Add Article</a></li>    
+   <li><a href="{% url 'add_task' %}">Add Task</a></li>    
    {% endblock %}
    {% block content %}
     <h1>Tasks</h1>
@@ -18,8 +18,9 @@
         {% endif %}
 
         {% for task in tasks %}
-        <p>{{ task.status }}: <a href="{% url "task_view" task.pk %}">{{ task.title }}</a></p>
-        <p><a href="{% url "task_update" task.pk %}">Edit</a></p>
+        <p>{{ task.status }}: <a href="{% url 'task_view' task.pk %}">{{ task.title }}</a></p>
+        <p><a href="{% url 'task_update' task.pk %}">Edit</a></p>
+        <p><a href="{% url 'task_delete' task.pk %}">Delete</a></p>
     {% endfor %}
 {% endblock %}
 </div>

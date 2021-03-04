@@ -45,3 +45,13 @@ def task_update_view(request, pk):
         tasks.description = request.POST.get('description')
         tasks.save()
         return redirect('task_view', pk=tasks.pk)
+
+
+def delete_task_view(request, pk):
+    tasks = get_object_or_404(Task, pk=pk)
+    if request.method == 'GET':
+       return render(request, 'delete.html', context={'task': tasks})
+    elif request.method == 'POST':
+        tasks.delete()
+        return redirect('index')
+
